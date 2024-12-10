@@ -18,7 +18,6 @@ SKIP :
 | "\t"
 | "\n"
 | "\r"
-| "\""
 
 }
 
@@ -35,7 +34,6 @@ TOKEN :
 | <FLOAT: "flot">
 | <INT: "int"> 
 | <BOOL: "bool">
-| <MULT: "*">
 
 | <SEMICOLON: ";">
 | <COMMA: ",">
@@ -43,8 +41,6 @@ TOKEN :
 | <let: "let">
 | <RETURN: "return">
 | <DEF: "def">
-| <printio: "printIO">
-| <readio: "readIO">
 
 | <ATRIB: ":=">
 | <SUM: "+">
@@ -69,17 +65,12 @@ void Lugosi () :
 
 (
   <MAIN> { System.out.println("Palavra reservada: main");}
-
 | <ACHAVES> { System.out.println("Abre chaves: {");}
 | <FCHAVES> { System.out.println("Fecha chaves: }");}
-
-| <AParen> { System.out.println("Abre Parenteses: (");}
+| <AParen> { System.out.println("Fecha chaves: (");}
 | <FParen> { System.out.println("Fecha chaves: )");}
-
 | <RETURN> { System.out.println("Palavra reservada: return");}  
 | <DEF> { System.out.println("Palavra reservada: def");} 
-| <printio> { System.out.println("Palavra reservada SAÍDA: printIO");}  
-| <readio> { System.out.println("Palavra reservada ENTRADA: readIO");}  
 
 | <FLOAT> { System.out.println("Palavra reservada: float");}  
 | <INT> { System.out.println("Palavra reservada: int");} 
@@ -90,12 +81,10 @@ void Lugosi () :
 
 | <SEMICOLON> { System.out.println("Palavra reservada: ;");} 
 | <COMMA> { System.out.println("Palavra reservada: ,");} 
-
 | <ATRIB> { System.out.println("Palavra reservada: Atrib");}  
 | <SUM> { System.out.println("Palavra reservada: sum");} 
 | <LESS> { System.out.println("Palavra reservada: less");}
 | <DIV> { System.out.println("Palavra reservada: div");}  
-| <MULT> { System.out.println("Palavra reservada: mult");}  
 
 | t=<NUM> { System.out.println("Número: "+ t.image);}
 | t=<ID> { System.out.println("Identificador: "+ t.image);}
