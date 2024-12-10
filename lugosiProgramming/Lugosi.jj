@@ -1,0 +1,112 @@
+PARSER_BEGIN(Lugosi)
+import java.io.*;
+public class Lugosi {
+
+  public static void main(String args[]) throws ParseException,IOException {
+    
+ Lugosi analisador = new Lugosi(new FileInputStream(args[0]));
+ analisador.Lugosi();
+  }
+
+}
+
+PARSER_END(Lugosi)
+
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\""
+
+}
+
+TOKEN :
+{
+  <MAIN: "main">
+  
+| <ACHAVES: "{">
+| <FCHAVES: "}">
+| <AParen: "(">
+| <FParen: ")">
+
+| <VOID: "void">
+| <FLOAT: "flot">
+| <INT: "int"> 
+| <BOOL: "bool">
+| <MULT: "*">
+
+| <SEMICOLON: ";">
+| <COMMA: ",">
+
+| <let: "let">
+| <RETURN: "return">
+| <DEF: "def">
+| <printio: "printIO">
+| <readio: "readIO">
+
+| <ATRIB: ":=">
+| <SUM: "+">
+| <LESS: "-">
+| <DIV: "/">
+
+
+}
+
+TOKEN :
+{
+  <NUM : (["0"-"9"])+("."(["0"-"9"])+)?("E"("-"|"+")?(["0"-"9"])+)?>
+ |< ID: ["a"-"z","A"-"Z"] ( ["a"-"z","A"-"Z","0"-"9"])*>
+
+}
+
+
+
+void Lugosi () :
+{Token t;}
+{
+
+(
+  <MAIN> { System.out.println("Palavra reservada: main");}
+
+| <ACHAVES> { System.out.println("Abre chaves: {");}
+| <FCHAVES> { System.out.println("Fecha chaves: }");}
+
+| <AParen> { System.out.println("Abre Parenteses: (");}
+| <FParen> { System.out.println("Fecha chaves: )");}
+
+| <RETURN> { System.out.println("Palavra reservada: return");}  
+| <DEF> { System.out.println("Palavra reservada: def");} 
+| <printio> { System.out.println("Palavra reservada SAÍDA: printIO");}  
+| <readio> { System.out.println("Palavra reservada ENTRADA: readIO");}  
+
+| <FLOAT> { System.out.println("Palavra reservada: float");}  
+| <INT> { System.out.println("Palavra reservada: int");} 
+| <VOID> { System.out.println("Palavra reservada: void");}  
+
+| <let> { System.out.println("Palavra reservada: let");}  
+| <BOOL> { System.out.println("Palavra reservada: bool");}  
+
+| <SEMICOLON> { System.out.println("Palavra reservada: ;");} 
+| <COMMA> { System.out.println("Palavra reservada: ,");} 
+
+| <ATRIB> { System.out.println("Palavra reservada: Atrib");}  
+| <SUM> { System.out.println("Palavra reservada: sum");} 
+| <LESS> { System.out.println("Palavra reservada: less");}
+| <DIV> { System.out.println("Palavra reservada: div");}  
+| <MULT> { System.out.println("Palavra reservada: mult");}  
+
+| t=<NUM> { System.out.println("Número: "+ t.image);}
+| t=<ID> { System.out.println("Identificador: "+ t.image);}
+
+)*
+<EOF> 
+
+
+}
+
+
+
+
+

@@ -1,0 +1,15 @@
+(base) frank@urubu:~/temp/UFPEL/AULAS/Compiler-Design-Course/compilerJavaDidadico/JavaCompiler$ javac *.java
+(base) frank@urubu:~/temp/UFPEL/AULAS/Compiler-Design-Course/compilerJavaDidadico/JavaCompiler$ java Compilador teste
+Resultado da execução da expressão: 207
+Código gerado para a máquina de pilha:
+PUSH 3
+PUSH 4
+PUSH 51
+MULT
+SUM
+PRINT
+Código gerado salvo em 'codigoGerado.txt'.
+(base) frank@urubu:~/temp/UFPEL/AULAS/Compiler-Design-Course/compilerJavaDidadico/JavaCompiler$ javac MaquinaPilha.java
+(base) frank@urubu:~/temp/UFPEL/AULAS/Compiler-Design-Course/compilerJavaDidadico/JavaCompiler$ java MaquinaPilha arquivoDeEntrada.txt
+Resultado final: 207
+(base) frank@urubu:~/temp/UFPEL/AULAS/Compiler-Design-Course/compilerJavaDidadico/JavaCompiler$ 

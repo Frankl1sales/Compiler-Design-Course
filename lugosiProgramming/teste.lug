@@ -1,0 +1,37 @@
+void main{
+	let float teste;
+	teste := 9.0E20;
+	let float valor;
+	valor := 2.4;
+	valor := calculoSum (valor, teste);
+	printIO valor;
+
+	let float altura;
+	let float largura;
+	let float profundidade;
+	let float volume;
+
+	printIO "Digite a altura";
+	altura := readIO();
+
+	printIO "Digite a largura";
+	largura := readIO();
+
+	printIO "Digite a profundidade";
+	profundidade := readIO();
+
+	volume := calculaVolume (altura, largura, profundidade);
+	printIO "O volume eh";
+	printIO volume;
+}
+
+def calculoSum (float num1, float num2){
+	let float sum;
+	sum := num1 + num2;
+	return sum; 
+}
+
+def calculaVolume (float altura, float largura, float profundidade) {
+    return (altura * largura * profundidade);
+}
+
